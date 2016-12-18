@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body onresize="hdResize()">
+<span onclick="handleClick()">click</span>
+
+<input type="text" onchange="handleChange(this)" onkeydown="hdKeyDown(this)">
+
+<style>
+	.test{
+		width: 100px;
+		height: 100px;
+		overflow: hidden;
+		border:1px solid #ccc;
+	}
+	/*.test:hover{*/
+		/*background: green;*/
+	/*}*/
+</style>
+<div class="test" onmouseover="hdOver(this)" onmouseout="hdOut(this)"></div>
+
+<div class="test" onmouseenter="hdOver(this)" onmouseleave="hdOut(this)"></div>
+
+<script>
+	function handleClick() {
+		console.log('click')
+	}
+	function hdKeyDown(e){
+		console.log('keyDown');
+	}
+
+	function handleChange(e) {
+		console.log(e);
+		console.log('change:' + e.value);
+	}
+
+	function hdOver(e){
+		e.style.background = 'green';
+	}
+
+	function hdOut(e){
+		e.style.background = 'yellow';
+	}
+
+	function hdResize() {
+		console.log(window.screen.width);
+	}
+
+	window.onload = function () {
+		//coding..
+
+
+
+	}
+
+
+
+
+</script>
+</body>
+</html>

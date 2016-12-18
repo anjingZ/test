@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<input type="text"  onfocus="testFocus()" >
+<input type="text"  onblur="testBlur()">
+<script>
+	setTimeout(function () {
+//		location.href = 'http://www.baidu.com';
+//		location.replace('http://www.baidu.com');
+	},3e3);
+
+	function testFocus (){
+//		var ele = document.getElementById('test');
+		alert('focus 得到焦点')
+	}
+
+	function testBlur(){
+		alert('blur 失去焦点');
+	}
+</script>
+</body>
+</html>

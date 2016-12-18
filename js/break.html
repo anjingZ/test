@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<script>
+	//break
+
+	function test() {
+		for (var i = 0; i < 10; i++) {
+			if (i % 2 != 0) {
+
+//				break;
+				continue;
+			}
+			console.log(i);
+		}
+	}
+
+	test();
+
+	var obj = {
+		name: 'test',
+		age: 4,
+		number: 3
+	};
+
+	for (item in obj) {
+		if (item == 'age' && obj[item] == 2) {
+			continue;
+		}
+		console.log(obj[item]);
+
+	}
+
+//	window.$ = obj;
+
+</script>
+
+</body>
+</html>

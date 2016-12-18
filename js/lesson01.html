@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<p id="demo">
+	JavaScript 能改变 HTML 元素的内容。
+</p>
+<script>
+	function test(){
+		var isOk = confirm("are you ok?");
+		return isOk;
+	}
+	function myFunction(){
+
+		var ele ,
+			isok,
+			str;
+
+		isok = test();
+
+		if (isok){
+			str = "Hello JavaScript!";
+		}else{
+			str = 'bye';
+		}
+
+		ele=document.getElementById("demo");  // 找到元素
+		ele.innerHTML= str;    // 改变内容
+	}
+
+</script>
+<button type="button" onclick="myFunction()">点击这里</button>
+</body>
+</html>
