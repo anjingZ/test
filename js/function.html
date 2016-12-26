@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<div id="test"></div>
+
+<div id="test2"></div>
+
+<script>
+	test(2);
+	//函数声明
+	function test(num) {
+		var ele = document.getElementById('test');
+		ele.innerHTML = num;
+	}
+
+    var test2;
+	console.log(test2);
+	test2(5);
+	//函数表达式
+	test2 = function (num) {
+		var ele = document.getElementById('test2');
+		ele.innerHTML = num;
+	}
+
+	test2(5);
+
+
+
+</script>
+</body>
+</html>
