@@ -37,6 +37,8 @@
     </div>
 </form>
 
+
+
 <form name="sedForm">
     <div class="row"  >
         <label for="J_name2">last name</label>
@@ -44,6 +46,20 @@
     </div>
     <div class="row">
         <div id="J_submit2" >提交</div>
+    </div>
+</form>
+
+
+<form class="threeForm">
+    <div class="row">
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </div>
+    <div class="row">
+        <input type="text">
+        <input type="text">
+        <input type="text">
     </div>
 </form>
 <script>
@@ -101,6 +117,17 @@
             return false;
         }
         alert(str);
+    }
+
+    var threeForm = ele[2];
+    var row = threeForm.getElementsByClassName('row');
+    console.log(row);
+    var input = null;
+    for (var i = 0 ; i < row.length; i++){
+    	input = row[i].getElementsByTagName('input');
+    	for (var j = 0; j < input.length; j++){
+    		input[j].value  = j+1;
+        }
     }
 
 </script>
