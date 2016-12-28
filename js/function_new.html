@@ -6,9 +6,13 @@
 </head>
 <body>
 <script>
+
+	//构造函数
+
 	function People(name,age){
 		this.name = name;
 		this.age = age;
+		this.job = '';
 		this.getName = function () {
 			console.log(this.name)
 		}
@@ -20,6 +24,21 @@
 		}
 	}
 
+	People.prototype.setAge = function (num) {
+		this.age = num;
+	}
+	People.prototype.getAge = function () {
+		console.log(this.age);
+	}
+
+	People.prototype.getJob = function () {
+		console.log(this.job);
+	}
+
+	People.prototype.setJob = function (str) {
+		this.job = str;
+	}
+	//实例化一个对象
 	var xiaoming = new People('小明',25);
 
 	var laowang = new People('老王',89);
