@@ -38,10 +38,28 @@
 	People.prototype.setJob = function (str) {
 		this.job = str;
 	}
+
+	People.prototype.setAge = function(num){
+		this.age = num + '!';
+	}
+
+	People.prototype.setName = function (str) {
+		this.name = str + '!';
+	}
 	//实例化一个对象
 	var xiaoming = new People('小明',25);
 
+
+	xiaoming.getJob2 = function () {
+		console.log(this.job);
+	}
+
+
+	console.log(xiaoming.prototype)
+
 	var laowang = new People('老王',89);
+
+	console.log(laowang.prototype)
 
 </script>
 </body>
