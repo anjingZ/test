@@ -1,0 +1,33 @@
+/**
+ * Created by ziyu on 2017/1/4.
+ */
+body {
+  background: rgba(0, 128, 0, 0.24);
+}
+
+.cont_s {
+  color: #000;
+  background: rgba(255, 255, 0, 0.25);
+}
+.cont_s .child {
+  color: green;
+}
+.cont_s .child.child3 span {
+  text-decoration: underline;
+}
+.cont_s .child.child3 .child2 {
+  background: yellow;
+}
+.cont_s .child > .child2 {
+  color: red;
+}
+.cont_s .child > .child2 > span {
+  text-decoration: underline;
+}
+.cont_s .child > .child2 > span.t1 {
+  text-decoration: none;
+}
+.cont_s .child > .child2 > span.t1 + .t2 {
+  font-weight: bold;
+  font-size: 30px;
+}

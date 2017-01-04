@@ -33,4 +33,30 @@ body ul.cont li {
 .cont li:hover {
   border-style: solid;
   border-color: #008000;
+  border-radius: 5px;
+}
+.cont_s {
+  color: #000;
+}
+.cont_s .child {
+  color: green;
+}
+.cont_s .child.child3 span {
+  text-decoration: underline;
+}
+.cont_s .child.child3 .child2 {
+  background: yellow;
+}
+.cont_s .child > .child2 {
+  color: red;
+}
+.cont_s .child > .child2 > span {
+  text-decoration: underline;
+}
+.cont_s .child > .child2 > span.t1 {
+  text-decoration: none;
+}
+.cont_s .child > .child2 > span.t1 + .t2 {
+  font-weight: bold;
+  font-size: 30px;
 }
