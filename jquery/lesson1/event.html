@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="./../node_modules/jquery/dist/jquery.js"></script>
+
+</head>
+<body>
+<style>
+	.test{
+		border:2px solid green;
+		padding: 10px;
+		display: inline-block;
+		margin-top:30px;
+	}
+	.cont span{
+		display: inline-block;
+		padding: 10px;
+		border: 1px dashed #ccc;
+		margin-right:10px;
+	}
+</style>
+
+<div class="J_cont cont">
+	<span class="J_span ">span1</span>
+
+</div>
+<div class="test J_test">
+	J_test
+
+</div>
+<a class="J_a" href="http://www.baidu.com">baidu</a>
+<script>
+	/*$(()=>{
+		console.log($);
+	});*/
+
+	$(function(){
+//		console.log($);
+//		$(document).click(function (e) {
+//			console.log(e);
+//			console.log(1);
+//		});
+		//事件绑定 : 直接绑定事件到对象上
+		$('.J_test').click(function (e) {
+			console.log(e);
+			e.preventDefault();
+			e.stopPropagation();
+
+			var ele = '<span class="J_span">add new span</span>';
+			$('.J_cont').append(ele);
+
+		});
+
+//		$('.J_span').click(function (e) {
+//			e.stopPropagation();
+//			e.preventDefault();
+//			var _str = $(e.currentTarget).text();
+//			alert(_str);
+//		});
+		//事件代理: 绑定事件对象 是其父 对象
+		$('.J_cont').on('click','.J_span',function (e) {
+			e.stopPropagation();
+			e.preventDefault();
+//			var _str = $(e.currentTarget).text();
+//
+//			alert(_str);
+//			$(e.currentTarget).remove();
+			$(this).remove();
+		})
+
+//		$('.J_a').click(function (e) {
+//			e.preventDefault();
+//			e.stopPropagation();
+//
+//		});
+
+		$(window).on('resize',function (e) {
+			console.log($(this).width());
+			e.preventDefault();
+
+		});
+
+		$(document).on('mouseover mouseout','.J_span',function (e) {
+			console.log(e.type);
+			if(e.type == 'mouseover'){
+				$(this).css('background', 'green');
+			}else{
+				$(this).css('background','none');
+			}
+		})
+
+
+	})
+</script>
+</body>
+</html>
