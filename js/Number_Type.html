@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+
+	function getType(obj){
+		var _str = Object.prototype.toString.call(obj);
+		var lastIndex = _str.lastIndexOf(']');
+		var obj_str = _str.slice(8,lastIndex).toLowerCase();
+		console.log(obj_str);
+		return obj_str;
+
+		var a = 1;
+		a.valueOf();
+	}
+
+</script>
+</body>
+</html>

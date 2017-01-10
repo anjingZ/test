@@ -1,0 +1,73 @@
+/**
+ * Created by ziyu on 2017/1/3.
+ */
+@import "./common";
+
+body{
+  margin:0;
+  ul{
+    margin: 0;
+    padding:0;
+    li{
+      list-style: none;
+      margin: 0;
+      display: inline-block;
+      padding:10px;
+
+    }
+    &.nav{
+      li{
+        border:2px solid green;
+        &:hover{
+          background: green;
+          color: @baseColor;
+        }
+      }
+    }
+    &.cont{
+      padding-top:20px;
+      li{
+        border: 2px dashed red;
+      }
+    }
+  }
+
+}
+
+.cont{
+  li{
+    &:hover{
+      border-style: solid;
+      border-color: @baseColor;
+      border-radius:5px;
+    }
+  }
+}
+
+.cont_s{
+  color: #000;
+  .child{
+    color: green;
+    &.child3{
+      span{
+        text-decoration: underline;
+      }
+      .child2{
+        background: yellow;
+      }
+    }
+    >.child2{
+      color: red;
+      >span{
+        text-decoration: underline;
+        &.t1{
+          text-decoration:none;
+          +.t2{
+            font-weight: bold;
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}

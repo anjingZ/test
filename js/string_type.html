@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	function getStr(str,searchVal,fn){
+		var reg  = new RegExp( searchVal,"g");
+
+		var objStr = str.replace(reg,fn(searchVal));
+		console.log(objStr);
+	}
+
+	function upStr(str) {
+		var _str = str.toUpperCase();
+		return _str;
+	}
+
+	var str = 'my name is test string';
+
+	getStr(str, 't',upStr);
+
+	var dd = 'test dd wq 你好';
+
+	getStr(dd,'dd',upStr);
+</script>
+</body>
+</html>

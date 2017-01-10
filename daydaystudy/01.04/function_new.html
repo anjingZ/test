@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+
+	//构造函数
+
+	function People(name,age){
+		this.name = name;
+		this.age = age;
+		this.job = '';
+		this.getName = function () {
+			console.log(this.name)
+		}
+		this.setName = function (newName) {
+			this.name = newName;
+		}
+		this.sayWord = function () {
+			console.log('o!, my name is  ' + this.name );
+		}
+	}
+
+	People.prototype.setAge = function (num) {
+		this.age = num;
+	}
+	People.prototype.getAge = function () {
+		console.log(this.age);
+	}
+
+	People.prototype.getJob = function () {
+		console.log(this.job);
+	}
+
+	People.prototype.setJob = function (str) {
+		this.job = str;
+	}
+
+	People.prototype.setAge = function(num){
+		this.age = num + '!';
+	}
+
+	People.prototype.setName = function (str) {
+		this.name = str + '!';
+	}
+	//实例化一个对象
+	var xiaoming = new People('小明',25);
+
+
+	xiaoming.getJob2 = function () {
+		console.log(this.job);
+	}
+
+
+	console.log(xiaoming.prototype)
+
+	var laowang = new People('老王',89);
+
+	console.log(laowang.prototype)
+
+</script>
+</body>
+</html>
