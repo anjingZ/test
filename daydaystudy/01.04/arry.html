@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+
+	function eqArr(arr) {
+
+		var _arr = [];
+		for (var i = 0; i < arr.length;i++){
+			if (_arr.indexOf(arr[i]) < 0){
+				_arr.push(arr[i]);
+			}
+		}
+		console.log(_arr);
+		return _arr;
+	}
+
+	var a = [1,3,2,4,3,4,2,5,8,9,0];
+
+	//eqArr(a);
+
+	function eqArr2(arr) {
+
+		var _arr = [];
+		arr.forEach(function (current,index) {
+			if (!_arr.length){
+				_arr.push(current);
+			}else {
+				console.log('outside:',index)
+				for (var i = 0; i < _arr.length;i++){
+					if (current.age != _arr[i].age && current.name != _arra.name){
+						_arr.push(arr[index]);
+					}
+				}
+			}
+
+		})
+
+		console.log(_arr);
+		return _arr;
+	}
+
+	var b = [
+		{name: 'test',age: 1,job: 'js1'},
+		{name: 'aa',age:3,job: 'js2'},
+		{name: 'test',age:1,job:'jso3'},
+		{name: 'bb',age:3,job: 'js4'},
+		{name: 'test',age:1,job:'jso5'},
+		{name: 'b2b',age:3,job: 'js6'},
+	]
+
+	eqArr2(b);
+
+</script>
+</body>
+</html>

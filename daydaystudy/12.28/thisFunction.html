@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+
+	var name = 'test';
+	function test(){
+		console.log(this)
+		console.log(this.name);
+	}
+
+	test();
+//	window.test();
+
+	var obj = {
+		name:'123t',
+		tts:test
+	}
+
+	obj.tts();
+
+</script>
+</body>
+</html>

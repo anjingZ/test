@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<script>
+
+	var obj = {
+		name : 'test',
+		age : 12,
+		getName:function(){
+//			alert(this.name);
+			console.log(this.name);
+		},
+		setName:function(newName){
+			this.name = newName;
+		}
+	};
+
+	obj.setAge = function (num) {
+		this.age = num;
+	}
+
+	obj.getAge = function () {
+		console.log(this.age);
+	}
+
+//	obj.getName();
+//	var name = obj.name;
+	var name = obj['name'];
+//	console.log(name);
+	var obj1 = {
+		name : 'aaa',
+		age: 33
+	};
+
+	function getObjValue(obj,key){
+		var _str = obj[key];
+		console.log(_str);
+	}
+
+	console.log(obj);
+
+	function test (str){
+		obj.name += str;
+	}
+
+//	test('123');
+
+	function testCall(str){
+		console.log(this);
+		this.name += str;
+		console.log(this);
+
+		console.log(this.name);
+	}
+
+	testCall.call(obj,111);
+
+
+
+</script>
+</body>
+</html>
