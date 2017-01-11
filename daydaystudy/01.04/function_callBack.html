@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+//function callBack
+
+<script>
+//	var list = [
+//		{name: 'test',age:2}
+//	];
+
+	function setList(cb){
+		var list = [];
+		for (var i = 0;i < 10; i++){
+			list.push({
+				name: 'test' + i,
+				age: i*3
+			});
+		}
+		console.log(list);
+		if (cb){
+			cb(list);
+		}
+	}
+
+//	setList(function (result) {
+//		console.log(result);
+//	});
+
+	setList(listAge3);
+
+	function listAge3(res,cb) {
+		console.log(res);
+		if (res.length){
+			res.forEach(function (cur,idx) {
+				cur.age *= 2;
+			});
+
+			console.log(res);
+			if (cb){
+				cb(res);
+			}
+		}
+	}
+
+</script>
+</body>
+</html>

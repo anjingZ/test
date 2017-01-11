@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	function test(str,fn){
+		console.log(arguments); //类数组
+		var a = str;
+		var a2 = arguments[0];
+		if (str){
+			fn(str);
+		}
+	}
+
+	function returnFn(str){
+		console.log(str);
+		return str;
+	}
+  //函数可以作为一个值来使用
+	test(2,returnFn);
+
+
+</script>
+</body>
+</html>
