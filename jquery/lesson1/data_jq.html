@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./../node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+<style>
+    .J_test{
+        border:1px solid #000000;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .J_test.green{
+        border:1px dashed green;
+    }
+</style>
+<section class="J_test" title="test">
+
+</section>
+<button class="J_btn">点击</button>
+
+<script>
+    var _data = (function () {
+        var _arr = [];
+        for(var i = 0; i < 10; i++){
+            _arr.push({
+                name: 'test_' + i,
+                age: (i== 0) ? 1 : i*10
+            });
+        }
+
+        return _arr;
+
+    })();
+
+    var my_model = {
+        init:function () {
+            var self = this;
+            self.J_body = $('body');
+            self.J_test = self.J_body.find('.J_test');
+            self.J_btn = self.J_body.find('.J_btn');
+
+            $.data(self.J_btn,'data',_data);
+
+            self.eventHanding();
+        },
+        eventHanding:function(){
+            var self = this;
+
+           /* self.J_btn.on('click',function (e) {
+                e.preventDefault();
+                console.log(e);
+            });*/
+
+            self.J_btn.on('mouseover mouseout click',function (e) {
+//                console.log(e.type);
+                if(e.type == 'mouseover'){
+                    self.J_test.addClass('green');
+                }else if(e.type == 'mouseout'){
+                    self.J_test.removeClass('green');
+                }else if(e.type == 'click'){
+                    var _dataVal = $.data(self.J_btn,'data');
+                    console.log(e.currentTarget);
+//                    var _test = self.J_test.attr('title');
+                    var _ul = '';
+                    _dataVal.forEach(function (current,index) {
+                        _ul +=  self.renderHtml(current);
+                    })
+
+                    self.J_test.append(_ul);
+                }
+            });
+
+            $(window).on('resize',function (e) {
+                var _arr = ['green','red','yellow','gary','blue'];
+                var _r = Math.floor(Math.random()*10);
+
+                self.J_body.css({
+                    background: _arr[_r] ? _arr[_r] : _arr[0]
+                })
+            })
+        },
+        renderHtml:function(obj){
+
+            var _html;
+
+            _html =  '<div>name:' + obj.name + ' age:' + obj.age + '</div>';
+
+            return _html;
+        }
+
+    };
+
+    $(function () {
+
+        my_model.init();
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+closePackage
+
+<script>
+	function test(){
+		var a = 2;
+
+		return function () {
+			console.log(a);
+			return a *= 2
+		};
+
+	}
+
+//	var b = test()();
+	var b = test();
+
+	var c = b();
+	console.log(c);
+///====================
+	var add = (function () {
+		var counter = 0;
+		return function () {
+			console.log(counter);
+			return counter += 1;
+		}
+	})();
+   console.log(add);
+	add();
+</script>
+</body>
+</html>

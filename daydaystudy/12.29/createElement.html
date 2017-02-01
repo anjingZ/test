@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<div id="div1">
+	<p id="p1">这是一个段落。</p>
+	<p id="p2">这是另一个段落。</p>
+
+</div>
+<button id="J_add">add item</button>
+<button id="J_unAdd">unAdd item</button>
+<script>
+	function test(){
+		var targe =document.createElement("p");
+		var node=document.createTextNode("这是一个新段落。");
+		targe.appendChild(node);
+		var element=document.getElementById("div1");
+		element.appendChild(targe);
+	}
+	var ele = document.getElementById('J_add');
+	ele.addEventListener('click',test);
+
+	var unele = document.getElementById('J_unAdd');
+	unele.addEventListener('click',untest);
+	function untest(){
+		var element=document.getElementById("div1");
+		var child = element.getElementsByTagName('p');
+		console.log(child);
+		element.removeChild(child[child.length-1]);
+	}
+</script>
+</body>
+</html>

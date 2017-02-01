@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+高阶函数
+<br>
+以一个或多个函数为参数的函数称之为高阶函数
+
+map 就是高阶函数
+
+<script>
+	Array.prototype.map = function (fn) {
+		var len = this.length;
+		if (typeof  fn != 'function'){
+			throw new Error('argument should be a function');
+		}
+		var res = [];
+		for (var i = 0; i < len; i++){
+			res[i] = fn.call(this,this[i]);
+		}
+		return res;
+	}
+	function double(num){
+		return num * 2;
+	}
+
+	var a = [1,2,3,4];
+	var c = [1,4,8,9];
+	var b = a.map(double);
+	console.log(b);
+	var d = c.map(double);
+	console.log(d);
+</script>
+</body>
+</html>

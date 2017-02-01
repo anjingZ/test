@@ -1,0 +1,9 @@
+.layout {
+  width: 100%;
+  height: auto;
+}
+.test {
+  clear: both;
+  color: green;
+  font-size: 38px;
+}

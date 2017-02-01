@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .data{
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top:-1px;
+    }
+</style>
+<div id="J_test">
+
+</div>
+<script src="./tool.js"></script>
+<script src="./jsontest.js"></script>
+<script>
+
+   /* var json = {
+        data:[
+            {
+                name: 'te',
+                age:20
+            },
+            {
+                name: 't2',
+                age: 13
+            }
+        ]
+    };*/
+
+    window.onload = function(){
+
+        var data = json.data;
+        console.log(data);
+        var html = '';
+        for(var i = 0; i < data.length; i++){
+            html += '<div class="data">' + Tool.upString( data[i].name ) + '  ' + data[i].age +  ' job: ' + Tool.getString(data[i].job) + '</div>';
+        }
+
+        console.log(html);
+
+        var ele = document.getElementById('J_test');
+       console.log(ele);
+        ele.innerHTML = html;
+
+    }
+
+</script>
+</body>
+</html>
