@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./../node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+<style>
+    .table_body{
+        border: 1px solid #ccc;
+        margin: 10px;
+    }
+    .tab_nav{
+        font-size:0;
+        line-height: 0;
+        margin: 0;
+        padding: 0;
+    }
+    .tab_nav li{
+        display: inline-block;
+        padding:0 15px;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 30px;
+        cursor: pointer;
+    }
+    .tab_nav li.active{
+        border-bottom:1px solid #000;
+    }
+    .table_body .item{
+        display: none;
+        padding:15px;
+    }
+    .tab_body .item.active{
+        display:block
+    }
+    .item .item_i{
+        display: block;
+        padding: 15px;
+    }
+</style>
+<section class="J_tab table_body">
+    <ul class="tab_nav">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <section class="J_tab_body tab_body" >
+        <article class="item active">cont 1</article>
+        <article class="item"> cont 2</article>
+        <article class="item"> cont 3</article>
+    </section>
+</section>
+
+<script>
+
+    var my_model = {
+        init:function () {
+            var self = this;
+            self.J_tab = $('.J_tab');
+            self.J_tabNav = self.J_tab.find('.tab_nav li');
+            self.J_tabBd = self.J_tab.find('.J_tab_body .item');
+
+            self.eventHanding();
+            self.returnHtml();
+        },
+        eventHanding:function () {
+            var self = this;
+            self.J_tabNav.each(function (index,current) {
+//                console.log(index,current)
+                $(current).on('click',function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+//                    console.log(index);
+//                    console.log(this);
+                    //菜单状态切换
+                    $(this).siblings('li').removeClass('active');
+                    $(this).addClass('active');
+
+                    //拿数据
+                    self.returnHtml(index);
+
+                    //内容状态切换
+                    self.J_tabBd.removeClass('active');
+                    self.J_tabBd.eq(index).addClass('active');
+                })
+            })
+
+        },
+        getData:function (flag) {
+            flag = flag || 10;
+            var _arr = [];
+            for(var i = 0; i < flag; i++){
+                _arr.push({
+                    name: 'test_' + (i+1),
+                    age: i * 10
+                })
+            }
+            return _arr;
+        },
+        renderHtml:function (obj) {
+            var _html = '';
+            _html = "<div class='item_i'>" + obj.name  +  ': ' + obj.age + '</div>';
+            return _html;
+        },
+        returnHtml :function (index) {
+            var self = this;
+            index = index || 0;
+            var i = 10;
+            if(index == 0){
+                i = 5;
+            }else if(index == 1){
+                i = 10;
+            }else{
+                i = 20;
+            }
+            var _data = self.getData(i);
+
+            var _html = '';
+            for(var j = 0; j < i; j++){
+                _html += self.renderHtml(_data[j]);
+            }
+
+            self.J_tabBd.eq(index).empty().append(_html);
+        }
+    }
+
+    $(function () {
+        my_model.init();
+    })
+</script>
+</body>
+</html>
