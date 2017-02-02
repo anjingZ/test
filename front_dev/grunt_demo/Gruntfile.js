@@ -1,18 +1,17 @@
 // Created by zr8732@126.com  on 2014/10/7.
 module.exports = function(grunt){
-    //项目配置
-    grunt.initConfig({
+    var config = {
         pkg:grunt.file.readJSON('package.json'),
         path:{
             src:"dev",
             dist:"build"
         },
         clean:{
-           build:{
-              src:[
-                  '<%= path.dist%>/'
-              ]
-           }
+            build:{
+                src:[
+                    '<%= path.dist%>/'
+                ]
+            }
         },
         less:{
             build:{
@@ -39,12 +38,12 @@ module.exports = function(grunt){
         },
         concat:{
             js:{
-               files:[{
-                   src:['<%= path.src%>/js/a.js',
-                   '<%= path.src%>/js/b.js'
-                   ],
-                   dest:'<%= path.dist%>/js/base.debug.js'
-               }]
+                files:[{
+                    src:['<%= path.src%>/js/a.js',
+                        '<%= path.src%>/js/b.js'
+                    ],
+                    dest:'<%= path.dist%>/js/base.debug.js'
+                }]
             },
             css:{
                 files:[
@@ -112,7 +111,9 @@ module.exports = function(grunt){
         }
 
 
-    });
+    };
+    //项目配置
+    grunt.initConfig(config);
     //加载任务插件
    // grunt.loadNpmTasks('grunt-contrib-clean');
     //grunt.loadNpmTasks('grunt-contrib-less');
